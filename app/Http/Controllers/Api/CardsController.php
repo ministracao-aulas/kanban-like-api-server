@@ -37,13 +37,14 @@ class CardsController extends Controller
     public static function getFakeCard()
     {
         $steps = [
-            ['title' => 'planejamento', 'id' => 1 ],
-            ['title' => 'em_andamento', 'id' => 2 ],
-            ['title' => 'concluida',    'id' => 3 ],
+            ['title' => 'planejamento', 'id' => 1000 ],
+            ['title' => 'em_andamento', 'id' => 2000 ],
+            ['title' => 'concluida',    'id' => 3000 ],
         ];
 
         return [
             "title" => "Card " . Str::random(5),
+            "id"    => rand(1, 100).rand(1, 100),
             "step"  => Arr::random($steps),
             "color" => self::getRandomColorCode(),
             "description" => Str::random(15),
@@ -85,7 +86,7 @@ class CardsController extends Controller
         ];
     }
 
-    public static function getRandomColorCode()
+    public static function getRandomColorCode(string $color_name = null)
     {
         $color_codes = [
             'black'          => '#000000',
@@ -122,8 +123,12 @@ class CardsController extends Controller
             'cornflowerblue' => '#6495ed',
             'cornsilk'       => '#fff8dc',
             'crimson'        => '#dc143c',
+            'midnightblue'   => '#37474f',
+            'success'        => '#8bc34a',
+            'danger'         => '#e51c23',
         ];
 
-        return Arr::random($color_codes);
+        return $color_name ?  $color_codes[$color_name] ?? Arr::random($color_codes)
+                            : Arr::random($color_codes);
     }
 }
