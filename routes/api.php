@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('indicadores', [IndicadoresController::class, 'new']);
-Route::post('varios', [IndicadoresController::class, 'multi']);
+//Colocando as rotas dentro da controller para organizar o código
+IndicadoresController::routes();

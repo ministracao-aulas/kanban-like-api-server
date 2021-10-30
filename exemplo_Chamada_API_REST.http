@@ -1,0 +1,32 @@
+## Formas de usar os exemplos deste script:
+## - Um REST client como o Postman, Insomniac ou semelhantes.
+## - Executar o CURL no terminal
+## - Instalar esta extensão no VSCODE:
+##
+## Name: REST Client
+## @id:humao.rest-client
+## Description: REST Client for Visual Studio Code
+
+### Chamada POST API REST [JSON]
+curl -X POST http://localhost:8000/api/indicadores \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-d '{ "vendas": 200, "date": "2019-01-01", "vendedor": "VD4878", "app_id": "df5sdfsd54fsd6_012", "app_token": "abcjks879dhfkjdshfkjdshfdfskdfs" }'
+
+
+### Chamada POST Via query param
+curl -X POST http://localhost:8000/api/indicadores \
+-H 'Accept: application/json' \
+-d 'vendas=200&date=2019-01-01&vendedor=VD4878&app_id=df5sdfsd54fsd6_012&app_token=abcjks879dhfkjdshfkjdshfdfskdfs'
+
+### Chamada POST API REST MULTI
+curl -X POST http://localhost:8000/api/varios \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-d '{ "vendedores": [ {"vendas": 200, "date": "2019-01-01", "code": "VD4878"}, {"vendas": 150, "date": "2019-01-01", "code": "ABSDSD"} ], "app_id": "df5sdfsd54fsd6_012", "app_token": "abcjks879dhfkjdshfkjdshfdfskdfs" }'
+
+### Chamada POST API REST MULTI [Faltando dados em um dos vendedores]
+curl -X POST http://localhost:8000/api/varios \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-d '{ "vendedores": [ {"vendas": 200, "date": "2019-01-01", "code": "VD4878"}, {"date": "2019-01-01", "code": "ABSDSD"} ], "app_id": "df5sdfsd54fsd6_012", "app_token": "abcjks879dhfkjdshfkjdshfdfskdfs" }'

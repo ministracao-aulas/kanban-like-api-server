@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class IndicadoresController extends Controller
 {
+    public static function routes()
+    {
+        Route::post('indicadores',  [self::class, 'new'])->name('indicadores.index');
+        Route::post('varios',       [self::class, 'multi'])->name('indicadores.varios');
+    }
+
     public function new(Request $request)
     {
         $tokens = [//Esse é um exemplo. !!! É necessário uma implementação mais segura
