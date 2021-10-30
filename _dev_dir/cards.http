@@ -1,0 +1,14 @@
+## Formas de usar os exemplos deste script:
+## - Um REST client como o Postman, Insomniac ou semelhantes.
+## - Executar o CURL no terminal
+## - Instalar esta extensão no VSCODE:
+##
+## Name: REST Client
+## @id:humao.rest-client
+## Description: REST Client for Visual Studio Code
+
+
+### Listando os cards
+curl -X GET http://localhost:8000/api/cards \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json'

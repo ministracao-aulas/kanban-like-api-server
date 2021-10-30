@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\IndicadoresController;
+use App\Http\Controllers\Api\{
+    IndicadoresController,
+    CardsController,
+};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Colocando as rotas dentro da controller para organizar o código
 IndicadoresController::routes();
+CardsController::routes();
