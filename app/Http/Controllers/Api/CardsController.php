@@ -36,6 +36,7 @@ class CardsController extends Controller
 
     public static function getFakeCard()
     {
+        $true_false = [true, true, false, true, true, false, true, true, true, false, true, true, false, true];
         $steps = [
             ['title' => 'planejamento', 'id' => 1000 ],
             ['title' => 'em_andamento', 'id' => 2000 ],
@@ -66,19 +67,19 @@ class CardsController extends Controller
                 "title" => 'Checklist ' . Str::random(5),
                 "items" => [
                     [
-                        "done" => !!rand(0, 1),
+                        "done" => !!Arr::random($true_false),
                         "title" => 'Checklist item ' . Str::random(5),
                     ],
                     [
-                        "done" => !!rand(0, 1),
+                        "done" => !!Arr::random($true_false),
                         "title" => 'Checklist item ' . Str::random(5),
                     ],
                     [
-                        "done" => !!rand(0, 1),
+                        "done" => !!Arr::random($true_false),
                         "title" => 'Checklist item ' . Str::random(5),
                     ],
                     [
-                        "done" => !!rand(0, 1),
+                        "done" => !!Arr::random($true_false),
                         "title" => 'Checklist item ' . Str::random(5),
                     ],
                 ]
@@ -92,7 +93,6 @@ class CardsController extends Controller
             'black'          => '#000000',
             'silver'         => '#c0c0c0',
             'gray'           => '#808080',
-            'white'          => '#ffffff',
             'maroon'         => '#800000',
             'red'            => '#ff0000',
             'purple'         => '#800080',
@@ -106,13 +106,8 @@ class CardsController extends Controller
             'teal'           => '#008080',
             'aqua'           => '#00ffff',
             'orange'         => '#ffa500',
-            'aliceblue'      => '#f0f8ff',
             'antiquewhite'   => '#faebd7',
             'aquamarine'     => '#7fffd4',
-            'azure'          => '#f0ffff',
-            'beige'          => '#f5f5dc',
-            'bisque'         => '#ffe4c4',
-            'blanchedalmond' => '#ffebcd',
             'blueviolet'     => '#8a2be2',
             'brown'          => '#a52a2a',
             'burlywood'      => '#deb887',
