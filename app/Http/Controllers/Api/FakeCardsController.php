@@ -8,7 +8,7 @@ use Route;
 use Str;
 use Arr;
 
-class CardsController extends Controller
+class FakeCardsController extends Controller
 {
     public static function routes()
     {

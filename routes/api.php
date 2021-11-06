@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\{
     IndicadoresController,
-    CardsController,
+    FakeCardsController,
 };
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Colocando as rotas dentro da controller para organizar o código
 IndicadoresController::routes();
-CardsController::routes();
+
+Route::prefix('fake')->group(function () {
+    FakeCardsController::routes();
+});
